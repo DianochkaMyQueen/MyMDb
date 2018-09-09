@@ -1,0 +1,32 @@
+/* General Styles*/
+body, h1, h2, h3, h4, div, p, span, section, button, a, ul, li { padding: 0; margin: 0; border: 0; }
+ul { list-style-type: none; }
+
+body { padding: 2%; font-family: "Cabin", Arial, Helvetica, sans-serif; line-height: 1.5; font-size: 62.5%; }
+
+a {font-weight: 700; text-decoration: none;}
+p, .header_btn { font-size: calc(16px + (20 - 16) * (100vw - 600px) / (1400 - 600)); }
+h1 { font-size: calc(30px + (40 - 30) * (100vw - 600px) / (1400 - 600)); }
+
+.keyword { color: #F86173; }
+.flex { display: flex; }
+.flex-row { flex-flow: row wrap; }
+.flex-col { flex-flow: column nowrap; }
+.grid { display: grid; }
+
+/*Header Styles*/
+.header {border-radius: 5px; background: linear-gradient(45deg, #CC339A, #8037B8); padding: 2%; color: #fff; margin-bottom: 2% }
+.header_logo {font-size: 2.6em; color: #fff; align-self: flex-start;}
+.header_desc-section {align-items: center; margin: 18em 0em;}
+.desc-firstWord {color: #C1F33D;}
+.desc-secondWord {color: #F86173;}
+.desc-thirdWord {color: #F86173;}
+.header_desc {max-width: 40em; text-align: center; margin: .5em 0em 1.3em; }
+.header_btn-section {}
+.header_btn {color: inherit; text-transform: uppercase; background: rgb(225,225,225,.3); transition: background ease-in-out .5s; padding: 10px 30px;}
+.hb1 {margin-right: .5em;}
+.hb2 {margin-left: .5em;}
+
+.header_btn:hover {transition: background .3s linear; background: #F86173;}
+a:hover { cursor: pointer;}
+/*.header_logo:hover { text-decoration: none; }*/
