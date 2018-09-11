@@ -12,7 +12,7 @@
 		imgTag 		  = {},
 		divTag  	  = {},
 		aTag  		  = {},
-		titleArr 	  = ["Movie Title", "Very Longer Movie Title"],
+		titleArr 	  = ["Movie Title", "More Longer Movie Title"],
 		genreArr 	  = ["Action", "Adventure", "Comedy", "Horror", "Western", "Science Fiction"],
 
 		movieCount 	  = 10;
@@ -83,32 +83,47 @@
 		figureTag.classList.add("movie", "flex", "flex-col");
 
 		return figureTag;
-
-
-
-		console.log(figureTag)
-
 	}
 
 	function changeSchema() {
+
+		var movieArr = document.querySelectorAll(".movie");
 
 		if(!this.classList.contains("s-2")) {
 			this.classList.remove("s-1");
 			this.children[2].classList.add("hide")
 			this.children[3].classList.add("hide")
 			this.classList.add("s-2");
+
+			cBody.classList.remove("schema-1");
+			cBody.classList.add("schema-2");
+
+			for (var i = 0, length = movieArr.length; i < length; i++) {
+				movieArr[i].children[0].children[0].classList.add("hide");
+				movieArr[i].children[0].children[1].classList.add("movie-schema");
+			}
+
 		} else {
 			this.classList.remove("s-2");
 			this.children[2].classList.remove("hide")
 			this.children[3].classList.remove("hide")
 			this.classList.add("s-1");
+
+			cBody.classList.remove("schema-2");
+			cBody.classList.add("schema-1");
+
+			for (var i = 0, length = movieArr.length; i < length; i++) {
+				movieArr[i].children[0].children[0].classList.remove("hide");
+				movieArr[i].children[0].children[1].classList.remove("movie-schema");
+			}
+
 		}
 	}
 
 	// =========
 	// loops
 	// =========
-	for(var i = 0; i < movieCount; i++) {
+	for(var i = 0, length = movieCount; i < length; i++) {
 		cBody.appendChild(createMovie(i));
 	}
 
