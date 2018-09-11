@@ -28,7 +28,7 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 .desc-thirdWord {color: #F86173;}
 .header_desc {max-width: 40em; text-align: center; margin: .5em 0em 1.3em; }
 .header_btn-section {}
-.header_btn {color: inherit; font-weight: 700; font-size: 1.7em; text-transform: uppercase; background: rgb(225,225,225,.3); transition: background ease .5s; padding: 10px 30px;}
+.header_btn, .moreBtn {color: inherit; font-weight: 700; font-size: 1.7em; text-transform: uppercase; background: rgb(225,225,225,.3); transition: background ease .5s; padding: 10px 30px;}
 .hb1 {margin-right: .5em;}
 .hb2 {margin-left: .5em;}
 
@@ -58,6 +58,8 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 .movie_img-wrap { height: 280px; margin-bottom: .3em; background: rgba(225,225,225,.3); position: relative;}
 .movie_img-wrap:after { transition: background .3s ease; position: absolute; content: ""; width: 100%; height: 100%; opacity: .8; }
 
+.moreBtn { cursor: pointer; margin-top: 1em; align-self: center; }
+.disabled { color: rgba(13,81,70,.5) }
 
 /* Footer Styles */
 .footer { margin-top: 3em; align-items: center;}
@@ -68,13 +70,15 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 
 /* Hover */
 a:hover { cursor: pointer;}
-.header_btn:hover, .movie:hover .movie_img-wrap:after {background: #F86173;}
-.header_btn:active, .movie:active .movie_img-wrap:after {background: #C1F33D}
+.header_btn:hover, .movie:hover .movie_img-wrap:after, .moreBtn:hover {background: #F86173;}
+.header_btn:active, .movie:active .movie_img-wrap:after, .moreBtn:active {background: #C1F33D}
 .k-link:hover {text-decoration: none;}
 .schema:hover .schema-i{ opacity: .8; }
 .filter-item:hover, .social:hover, .movie:hover .movie-title, .email:hover { color: #F86173; }
 .filter-item:active, .social:active, .movie:active .movie-title, .email:active { color: #C1F33D; }
 .email, .social, .movie-title, .filter-item { transition: color .3s ease; }
+
+.disabled:hover, .disabled:active {background: rgba(225,225,225,.3)}
 
 /* Media */
 @media only screen and (max-width: 700px) {

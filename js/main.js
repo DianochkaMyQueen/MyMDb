@@ -12,10 +12,12 @@
 		imgTag 		  = {},
 		divTag  	  = {},
 		aTag  		  = {},
+		moreBtn		  = {},
 		titleArr 	  = ["Movie Title", "More Longer Movie Title"],
 		genreArr 	  = ["Action", "Adventure", "Comedy", "Horror", "Western", "Science Fiction"],
 
-		movieCount 	  = 10;
+		totalMovieCount 	  = 40,
+		index				  = 1;
 
 	// =========
 	// Functions
@@ -43,6 +45,25 @@
 			}
 		}
 		return;
+	}
+
+	function createBtn() {
+		var text = document.createTextNode("More");
+		divTag = resetDiv();
+		divTag.appendChild(text);
+		divTag.classList.add("moreBtn");
+
+		cBody.parentElement.appendChild(divTag);
+
+		moreBtn = divTag;
+
+		return;
+	} 
+
+	function appendMovies() {
+		for(var i = 0, length = 10; i < length; i++) {
+			cBody.appendChild(createMovie(index++)); //HERE 
+		}
 	}
 
 	function createMovie(index) {
@@ -120,17 +141,29 @@
 		}
 	}
 
-	// =========
-	// loops
-	// =========
-	for(var i = 0, length = movieCount; i < length; i++) {
-		cBody.appendChild(createMovie(i));
+	appendMovies();
+	createBtn();
+
+
+	function addMoreMovies() {
+		if(!moreBtn.classList.contains("disabled"))	appendMovies();
+		if(index > totalMovieCount) {
+			moreBtn.classList.add("disabled");
+			moreBtn.removeEventListener("click", addMoreMovies);
+		}
+		return;
 	}
 
-	// Event Listeners
-	schemaBtn.addEventListener("click", changeSchema);
 
-	// Lazy-load
+	// =========
+	// Events
+	// =========
+	schemaBtn.addEventListener("click", changeSchema);
+	moreBtn.addEventListener("click", addMoreMovies);
+
+
 	// TODO:
+	// Lazy-load
+	// Delete IMG when schema 2 is picked
 
 }())
