@@ -5,6 +5,7 @@
 	// =========
 	var cBody 		  = document.querySelector(".content-body"),
 		schemaBtn 	  = document.querySelector(".schema"),
+		anchor		  = document.querySelector(".anchor"),
 
 		h3Tag 		  = {},
 		figCaptionTag = {},
@@ -51,7 +52,7 @@
 		var text = document.createTextNode("More");
 		divTag = resetDiv();
 		divTag.appendChild(text);
-		divTag.classList.add("moreBtn");
+		divTag.classList.add("moreBtn", "btn-style");
 
 		cBody.parentElement.appendChild(divTag);
 
@@ -71,11 +72,19 @@
 		var element = {};
 		for(var i = 0, length = 10; i < length; i++) {
 			element = createMovie(index++);
-			cBody.appendChild(element); //HERE
+			cBody.appendChild(element);
 			if(cBody.classList.contains("schema-2")) {
 				hideElements(element);
 			}
 		}
+	}
+
+	function toAnchor() {
+		var anch = document.querySelector(".info-section");
+		window.scrollTo({
+		    top: anch.offsetTop,
+		    behavior: "smooth"
+		});
 	}
 
 	function createMovie(index) {
@@ -155,7 +164,6 @@
 	appendMovies();
 	createBtn();
 
-
 	function addMoreMovies() {
 		if(!moreBtn.classList.contains("disabled"))	appendMovies();
 		if(index > totalMovieCount) {
@@ -165,12 +173,12 @@
 		return;
 	}
 
-
 	// =========
 	// Events
 	// =========
 	schemaBtn.addEventListener("click", changeSchema);
 	moreBtn.addEventListener("click", addMoreMovies);
+	anchor.addEventListener("click", toAnchor);
 
 
 	// TODO:

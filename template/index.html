@@ -3,8 +3,52 @@
 	<meta charset="UTF-8">
 	<!-- <link rel="preconnect" href="WEBSITE DOMAIN" crossorigin> -->
     <style>
-    	
+    	/* General Styles*/
+		body, h1, h2, h3, h4, div, p, span, section, figure, figcaption, a, ul, li { padding: 0; margin: 0; border: 0; }
+		ul { list-style-type: none; }
+
+		body { padding: 2%; font-family: "Cabin", Arial, Helvetica, sans-serif; line-height: 1.5; font-size: 62.5%; color: #0D5146;}
+
+		a {text-decoration: none; color: inherit;}
+		p, h2 { font-size: calc(16px + (20 - 16) * (100vw - 320px) / (960 - 320)); }
+		h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320)); }
+
+		.grid { display: grid; }
+		.flex { display: flex; }
+		.flex-row { flex-flow: row wrap; }
+		.flex-col { flex-flow: column nowrap; }
+		.keyword { color: #F86173; } 
+		.k-link {text-decoration: underline; color: #F86173;}
+
+		/*Header Styles*/
+		.header {border-radius: 5px; background: linear-gradient(45deg, #CC339A, #8037B8); padding: 2%; color: #fff; margin-bottom: .9% }
+		.header_logo {font-size: 2.6em; color: #fff; align-self: flex-start;}
+		.header_desc-section {align-items: center; margin: 20vh 0vh;}
+		.desc-firstWord {color: #C1F33D;}
+		.desc-thirdWord {color: #F86173;}
+		.header_desc {max-width: 40em; text-align: center; margin: .5em 0em 1.3em; }
+		.btn-style {color: inherit; font-weight: 700; font-size: 1.7em; text-transform: uppercase; background: rgb(225,225,225,.3); transition: background ease .5s; padding: 10px 30px;}
+		.hb1 {margin-right: .5em;}
+		.hb2 {margin-left: .5em;}
+
+		/*Info Section Styles*/
+		.info-section { grid-template-columns: 1fr 1fr 1fr; justify-items: center; }
+		.info-item_sign { color: #F86173; }
+		.info-item { animation: visible 2s ease forwards; opacity: 0;}
+		.f1 {animation-delay: .5s;}
+		.f2 {animation-delay: .75s;}
+		.f3 {animation-delay: 1s;}
+
+		@keyframes visible {
+			from {
+				opacity: 0;
+			} 
+			to {
+				opacity: 1;
+			}
+		}
     </style>
+	<script defer type="text/javascript" src="../js/main.js"></script>
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script> -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -29,9 +73,9 @@
 				<span class="desc-firstWord">M</span>y<span class="desc-firstWord">M</span>ovie<span class="desc-thirdWord">D</span>atabase
 			</h1>	
 			<p class="header_desc">is a <span class="keyword">front-end</span> app with a list of mock-movies. The application is based on pure <span class="keyword">HTML, CSS, JS </span>with the best optimization methods that I know, and was created to show and improve my development skills.</p>
-			<div class="header_btn-section flex flex-row">
-				<a href="#" class="header_btn hb1">explore</a>
-				<a target="_blank" href="https://github.com/DianochkaMyQueen/MyMDb" class="header_btn hb2">source code</a>
+			<div class="btn-style-section flex flex-row">
+				<a class="btn-style anchor hb1">explore</a>
+				<a target="_blank" href="https://github.com/DianochkaMyQueen/MyMDb" class="btn-style hb2">source code</a>
 			</div>
 		</div>
 	</header>
@@ -70,12 +114,31 @@
 		<!-- Footer Links -->
 		<div class="links flex flex-row">
 			<a target="_blank" href="https://www.facebook.com/rostyslavoloshyn" class=" social link-1">Facebook</a>
-			<a target="_blank" href="https://github.com/DianochkaMyQueen" class=" social link-3">GitHub</a>
-			<a target="_blank" href="https://www.linkedin.com/in/rostislav-v-b51775125/" class="social link-4">LinkedIn</a>
+			<a target="_blank" href="https://github.com/DianochkaMyQueen" class=" social link-2">GitHub</a>
+			<a target="_blank" href="https://www.linkedin.com/in/rostislav-v-b51775125/" class="social link-3">LinkedIn</a>
+			<a target="_blank" href="https://codepen.io/DianochkaMyQueen" class="social link-4">CodePen</a>
 		</div>
 		<a href="mailto:valsytsor666@gmail.com" class="email">valsytsor666@gmail.com</a>
 	</div>
-	
-	<script defer type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript">
+		var head   = document.head,
+			script = document.createElement("script"),
+			link   = document.createElement("link"),
+			jsSrc  = "../js/movie.js",
+			cssSrc = "../styles/movie.css";
+
+			script.setAttribute("src", jsSrc);
+			link.setAttribute("rel", "stylesheet");
+			link.setAttribute("href", cssSrc);
+
+		document.onreadystatechange = function () {
+		  if (document.readyState == "interactive") {
+		    head.appendChild(script); script = null; 
+		    head.appendChild(link);   link   = null;
+		    head = null;
+		  }
+		}
+
+	</script>
 </body>
 </html>
