@@ -1,8 +1,8 @@
 (function() {
 
-	// =========
-	// Variables
-	// =========
+// =========
+// Variables
+// =========
 	var cBody 		  = document.querySelector(".content-body"),
 		schemaBtn 	  = document.querySelector(".schema"),
 		anchor		  = document.querySelector(".anchor"),
@@ -20,9 +20,9 @@
 		totalMovieCount 	  = 40,
 		index				  = 1;
 
-	// =========
-	// Functions
-	// =========
+// =========
+// Functions
+// =========
 	function randomN(max, min) {
 		return Math.floor(Math.random() * (max - min)) + min;
 	}
@@ -173,15 +173,11 @@
 		return;
 	}
 
-	// =========
-	// Events
-	// =========
+// =========
+// Events
+// =========
 	schemaBtn.addEventListener("click", changeSchema);
 	moreBtn.addEventListener("click", addMoreMovies);
 	anchor.addEventListener("click", toAnchor);
-
-
-	// TODO:
-	// Lazy-load
 
 }())

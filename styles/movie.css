@@ -1,0 +1,64 @@
+.movie-sidebar {
+	position: fixed;
+	/*transform: translateX(100%);*/
+	top: 0;
+	right: 0;
+	z-index: 1;
+	box-sizing: border-box;
+	background: #fff;
+	/*border-left: 1px #e1e1e1 solid;*/
+	width: 450px;
+	height: 100%;
+	will-change: transform;
+	transition: transform 300ms ease;
+
+	overflow-y: scroll;
+
+}
+
+.movie-sidebar-open {
+	transform: translateX(0%);
+}
+
+.movie-sidebar-wrap {
+	width: 100%;
+	position: relative;
+		
+}
+
+.movie-s_content-wrap {
+	padding: 0px 30px;
+	grid-template-areas: 
+		"title info . index"
+		"desc desc desc desc"
+		"actors actors actors actors"
+		"gallery gallery gallery gallery";
+	grid-template-rows: auto;
+	grid-gap: 30px 15px;
+	margin-top: 15px;
+	align-items: center;
+}
+
+.movie-sidebar::-webkit-scrollbar {
+	display: block;
+	width: 5px;
+}
+
+.movie-sidebar::-webkit-scrollbar-thumb {
+	background: linear-gradient(45deg, #CC339A, #8037B8);
+}
+
+.movie-s_title {grid-area: title;}
+.movie-s_info {grid-area: info;}
+.movie-s_index {grid-area: index; justify-self: end;}
+.movie-s_description {grid-area: desc; max-height: 280px;}
+.movie-s_description div, .movie-s_actors-list div { overflow-y: hidden; }
+
+.movie-s_actors-list { grid-area: actors;  }
+.movie-s_actors-list div { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+
+.movie-s_gallery { grid-area: gallery }
+
+@media only screen and (max-width: 700px) {
+	.movie-sidebar { width: 100% }
+}
