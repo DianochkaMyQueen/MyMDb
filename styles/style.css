@@ -35,6 +35,12 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 /*Info Section Styles*/
 .info-section { grid-template-columns: 1fr 1fr 1fr; justify-items: center; }
 .info-item_sign { color: #F86173; }
+.info-item { animation: visible 2s ease forwards; opacity: 0;}
+.f1 {animation-delay: .5s;}
+.f2 {animation-delay: .75s;}
+.f3 {animation-delay: 1s;}
+
+
 
 /* Filter Section Styles*/
 .content_filter { margin: .9% 0px 3.5em; align-items: center; border-radius: 5px; background: rgba(225,225,225,.3); padding: 5px 10px; box-sizing: border-box; }
@@ -48,7 +54,7 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 
 /* Content Styles*/
 .content-body { box-sizing: border-box; }
-.schema-1 { grid-template-columns: repeat(auto-fill, 190px); grid-template-rows: auto; grid-gap: 1.2em 1%; justify-content: space-between; }
+.schema-1 { grid-template-columns: repeat(auto-fill, 190px); grid-template-rows: auto; grid-gap: 35px; justify-content: space-between; }
 .s-1-title { font-size: 1.7em; font-weight: 300; text-transform: capitalize;}
 .s-1-info { font-size: 1.4em; opacity: .6; }
 .s-1-viewed { font-size: 1.4em; color: inherit; }
@@ -57,6 +63,7 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 
 .movie_img-wrap { height: 280px; margin-bottom: .3em; background: rgba(225,225,225,.3); position: relative;}
 .movie_img-wrap:after { transition: background .3s ease; position: absolute; content: ""; width: 100%; height: 100%; opacity: .8; }
+.movie { animation: visible 1s ease-in-out ; }
 
 .moreBtn { cursor: pointer; margin-top: 1em; align-self: center; }
 .disabled { color: rgba(13,81,70,.5) }
@@ -67,7 +74,14 @@ h1, .if-wrap { font-size: calc(30px + (40 - 30) * (100vw - 320px) / (960 - 320))
 .social:not(:last-of-type) { margin-right: 10px; }
 .social { margin: .3em 0em; font-size: 1.4em }
 
-
+@keyframes visible {
+	from {
+		opacity: 0;
+	} 
+	to {
+		opacity: 1;
+	}
+}
 /* Hover */
 a:hover { cursor: pointer;}
 .header_btn:hover, .movie:hover .movie_img-wrap:after, .moreBtn:hover {background: #F86173;}

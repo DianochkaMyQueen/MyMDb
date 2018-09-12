@@ -60,9 +60,21 @@
 		return;
 	} 
 
+	function hideElements(element) {
+		if(element)
+		element.children[0].children[0].classList.add("hide");
+		element.children[0].children[1].classList.add("movie-schema");
+		return;
+	}
+
 	function appendMovies() {
+		var element = {};
 		for(var i = 0, length = 10; i < length; i++) {
-			cBody.appendChild(createMovie(index++)); //HERE 
+			element = createMovie(index++);
+			cBody.appendChild(element); //HERE
+			if(cBody.classList.contains("schema-2")) {
+				hideElements(element);
+			}
 		}
 	}
 
@@ -120,8 +132,7 @@
 			cBody.classList.add("schema-2");
 
 			for (var i = 0, length = movieArr.length; i < length; i++) {
-				movieArr[i].children[0].children[0].classList.add("hide");
-				movieArr[i].children[0].children[1].classList.add("movie-schema");
+				hideElements(movieArr[i]);
 			}
 
 		} else {
@@ -164,6 +175,5 @@
 
 	// TODO:
 	// Lazy-load
-	// Delete IMG when schema 2 is picked
 
 }())
