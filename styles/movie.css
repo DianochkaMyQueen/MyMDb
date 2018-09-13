@@ -26,10 +26,12 @@
 		
 }
 
+.absol { position: absolute; }
+
 .movie-s_content-wrap {
 	padding: 0px 30px;
 	grid-template-areas: 
-		"title info . index"
+		"title . . info"
 		"desc desc desc desc"
 		"actors actors actors actors"
 		"gallery gallery gallery gallery";
@@ -49,13 +51,20 @@
 }
 
 .movie-s_title {grid-area: title;}
-.movie-s_info {grid-area: info;}
+.movie-s_info {grid-area: info; font-size: 1.6em;}
 .movie-s_index {grid-area: index; justify-self: end;}
-.movie-s_description {grid-area: desc; max-height: 280px;}
-.movie-s_description div, .movie-s_actors-list div { overflow-y: hidden; }
+.movie-s_close {}
+.movie-s_description {grid-area: desc; font-size: 1.6em;}
+.movie-s_description p { font-size: inherit; }
+.movie-s_description div, .movie-s_actors-list > div { overflow-y: hidden; max-height: 100px; }
+.movie-s_btn { font-size: inherit; margin-top: 10px; cursor: pointer; }
 
-.movie-s_actors-list { grid-area: actors;  }
-.movie-s_actors-list div { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+.movie-s_actors-list { grid-area: actors;  font-size: 1.6em;}
+.movie-s_actors-list > div { grid-template-columns: 1fr; grid-template-rows: auto; grid-row-gap: 20px; }
+.actor-img_wrap {width: 50px; height: 50px; background: rgba(225,225,225,.3); margin-right: 10px;}
+.actor-role { opacity: .5; }
+h4 { font-size: calc(14px + (16 - 14) * (100vw - 320px) / (960 - 320)); }
+
 
 .movie-s_gallery { grid-area: gallery }
 
