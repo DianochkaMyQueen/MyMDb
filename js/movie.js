@@ -41,8 +41,6 @@ var field = document.querySelector(".content-body"),
 		// descEl  = sidebar.querySelector(".movie-s_description").children[0].children[0],
 		movieListEl  = sidebar.querySelector(".movie-s_actors-list").children[0];
 
-		link = {};
-
 // =========
 // Functions
 // =========
@@ -52,6 +50,25 @@ var field = document.querySelector(".content-body"),
 
 	function createList(list) {
 		return list;
+	}
+
+	function closeSidebar() {
+		document.body.classList.remove("body-scrollbar-hidden");
+		sidebar.classList.remove("movie-sidebar-open");
+
+		return;
+	}
+
+	function hideOrShow() {
+		var el = this.parentElement.children[0];
+
+		if(!el.classList.contains("show")) {
+			el.classList.add("show");
+			this.innerText = "hide";
+		} else {
+			el.classList.remove("show");
+			this.innerText = "see more";
+		}
 	}
 
 	function createMovieInfo(movie, index, callback) {
@@ -66,15 +83,9 @@ field.addEventListener('click', function(e) {
 	if(this.contains(e.target) && e.target !== this) {
 		// TODO IF ()
 		var movie    = e.path.length === 9 ? e.path[1] : e.path[2],
-			closeBtn = sidebar.querySelector(".movie-s_close");
-
-
-		if(!(movie === link)) {
-			link = movie;
-
-			var	index = "#" + movie.href.match(/\d+$/m),
-				body = document.body;
-				body.classList.add("body-scrollbar-hidden");
+			index = "#" + movie.href.match(/\d+$/m),
+			closeBtn = sidebar.querySelector(".movie-s_close"),
+			collapseBtn = Array.from(sidebar.querySelectorAll(".movie-s_btn"));
 
 			createMovieInfo(movie, index, function(t,i, info, n) {
 				indexEl.innerText = i;
@@ -88,13 +99,11 @@ field.addEventListener('click', function(e) {
 			});
 			movie = null;
 			index = null;
+			document.body.classList.add("body-scrollbar-hidden");
+			sidebar.classList.add("movie-sidebar-open")
 		}
 
-		// TODO
-		// Close Func
-			// body class
-			// btn class
-			// key esc + x btn
-
-	}
+		collapseBtn.forEach(function(btn) {btn.addEventListener("click", hideOrShow)})
+		closeBtn.addEventListener("click", closeSidebar);
+		document.onkeyup = function(e) { if(e.keyCode === 27) closeSidebar(); }
 });

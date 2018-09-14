@@ -31,22 +31,12 @@
 		.hb1 {margin-right: .5em;}
 		.hb2 {margin-left: .5em;}
 
-		/*Info Section Styles*/
-		.info-section { grid-template-columns: 1fr 1fr 1fr; justify-items: center; }
-		.info-item_sign { color: #F86173; }
-		.info-item { animation: visible 2s ease forwards; opacity: 0;}
-		.f1 {animation-delay: .5s;}
-		.f2 {animation-delay: .75s;}
-		.f3 {animation-delay: 1s;}
-
-		@keyframes visible {
-			from {
-				opacity: 0;
-			} 
-			to {
-				opacity: 1;
-			}
-		}
+		/* Filter Section Styles*/
+		.content_filter { margin: .9% 0px 3.5em; align-items: center; border-radius: 5px; background: rgba(225,225,225,.3); padding: 5px 10px; box-sizing: border-box; }
+		.filter-item { font-size: 1.5em; margin-right: 1em;}
+		.filter-title {font-size: 1.8em; color: #F86173; margin-right: 1em}
+		.schema {  margin-left: auto; box-sizing: border-box;}
+		.s-1 { grid-template-columns: 9px 9px; grid-template-rows: 9px 9px; grid-gap: 3px; }
     </style>
 	<script defer type="text/javascript" src="../js/main.js"></script>
 
@@ -93,7 +83,7 @@
 			<li class="filter-item f-1">Recently</li>
 			<li class="filter-item f-2">Top Rated</li>
 			<li class="filter-item f-3">Low Rated</li>
-			<li class="schema s-1 grid">
+			<li class="schema s-1 grid pointer">
 				<span class="schema-i"></span>
 				<span class="schema-i"></span>
 				<span class="schema-i"></span>
@@ -125,20 +115,19 @@
 		<a href="mailto:valsytsor666@gmail.com" class="email">valsytsor666@gmail.com</a>
 	</div>
 	<script type="text/javascript">
-		var head   = document.head,
-			script = document.createElement("script"),
-			link   = document.createElement("link"),
-			jsSrc  = "../js/movie.js",
-			cssSrc = "../styles/movie.css";
+		document.onreadystatechange = function () {
+		  if (document.readyState == "complete") {
+	  		var head   = document.head,
+				script = document.createElement("script"),
+				link   = document.createElement("link"),
+				jsSrc  = "../js/movie.js",
+				cssSrc = "../styles/movie.css";
 
 			script.setAttribute("src", jsSrc);
 			link.setAttribute("rel", "stylesheet");
 			link.setAttribute("href", cssSrc);
-
-		document.onreadystatechange = function () {
-		  if (document.readyState == "interactive") {
-		    head.appendChild(script); script = null; 
 		    head.appendChild(link);   link   = null;
+		    head.appendChild(script); script = null; 
 		    head = null;
 		  }
 		}
