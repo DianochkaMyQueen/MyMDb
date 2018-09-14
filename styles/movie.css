@@ -1,20 +1,4 @@
-.movie-sidebar {
-	position: fixed;
-	/*transform: translateX(100%);*/
-	top: 0;
-	right: 0;
-	z-index: 1;
-	box-sizing: border-box;
-	background: #fff;
-	/*border-left: 1px #e1e1e1 solid;*/
-	width: 450px;
-	height: 100%;
-	will-change: transform;
-	transition: transform 300ms ease;
 
-	overflow-y: scroll;
-
-}
 
 .movie-sidebar-open {
 	transform: translateX(0%);
@@ -23,15 +7,15 @@
 .movie-sidebar-wrap {
 	width: 100%;
 	position: relative;
-		
 }
+
 
 .absol { position: absolute; }
 
 .movie-s_content-wrap {
 	padding: 0px 30px;
 	grid-template-areas: 
-		"title . . info"
+		"title title title info"
 		"desc desc desc desc"
 		"actors actors actors actors"
 		"gallery gallery gallery gallery";
@@ -50,23 +34,47 @@
 	background: linear-gradient(45deg, #CC339A, #8037B8);
 }
 
+.fs1em { font-size: 1.6em; }
+.body-scrollbar-hidden { overflow: hidden; }
+.body-scrollbar-hidden:before {
+	content: "";
+	position: fixed;
+	/*transition: background 100ms ease;*/
+	z-index: 1;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.3);
+}
+
 .movie-s_title {grid-area: title;}
-.movie-s_info {grid-area: info; font-size: 1.6em;}
-.movie-s_index {grid-area: index; justify-self: end;}
-.movie-s_close {}
-.movie-s_description {grid-area: desc; font-size: 1.6em;}
+.movie-s_info {grid-area: info; justify-self: end;}
+.movie-s_index {grid-area: index; top: 15px; left: 30px; color: #F86173}
+.movie-s_close {right: 19px; top: 15px; width: 24px; height: 24px; z-index: 2;}
+.movie-s_close:before, .movie-s_close:after { position: absolute; content: ""; width: 2px; height: 20px; background: #F86173; right: 11px; }
+.movie-s_close:before {
+  transform: rotate(45deg);
+}
+.movie-s_close:after {
+  transform: rotate(-45deg);
+}
+.movie-s_description {grid-area: desc; border-bottom: 1px #eee solid;}
 .movie-s_description p { font-size: inherit; }
 .movie-s_description div, .movie-s_actors-list > div { overflow-y: hidden; max-height: 100px; }
-.movie-s_btn { font-size: inherit; margin-top: 10px; cursor: pointer; }
+.movie-s_actors-list { grid-area: actors;}
+.movie-s_actors-list > div { grid-template-columns: 1fr; grid-template-rows: auto; grid-row-gap: 20px; max-height: 155px }
+div.show { overflow-y: visible; max-height: 100%; }
+.movie-s_btn { font-size: inherit; margin-top: 10px; }
 
-.movie-s_actors-list { grid-area: actors;  font-size: 1.6em;}
-.movie-s_actors-list > div { grid-template-columns: 1fr; grid-template-rows: auto; grid-row-gap: 20px; }
 .actor-img_wrap {width: 50px; height: 50px; background: rgba(225,225,225,.3); margin-right: 10px;}
 .actor-role { opacity: .5; }
 h4 { font-size: calc(14px + (16 - 14) * (100vw - 320px) / (960 - 320)); }
 
+.movie-s_close:hover { cursor: pointer; }
+.movie-s_close:active { background: #C1F33D }
 
-.movie-s_gallery { grid-area: gallery }
 
 @media only screen and (max-width: 700px) {
 	.movie-sidebar { width: 100% }

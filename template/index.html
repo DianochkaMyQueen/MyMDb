@@ -7,7 +7,7 @@
 		body, h1, h2, h3, h4, div, p, span, section, figure, figcaption, a, ul, li { padding: 0; margin: 0; border: 0; }
 		ul { list-style-type: none; }
 
-		body { overflow: hidden; padding: 2%; font-family: "Cabin", Arial, Helvetica, sans-serif; line-height: 1.5; font-size: 62.5%; color: #0D5146;}
+		body { padding: 2%; font-family: "Cabin", Arial, Helvetica, sans-serif; line-height: 1.5; font-size: 62.5%; color: #0D5146;}
 
 		a {text-decoration: none; color: inherit;}
 		p, h2, h3 { font-size: calc(16px + (20 - 16) * (100vw - 320px) / (960 - 320)); }
@@ -31,22 +31,12 @@
 		.hb1 {margin-right: .5em;}
 		.hb2 {margin-left: .5em;}
 
-		/*Info Section Styles*/
-		.info-section { grid-template-columns: 1fr 1fr 1fr; justify-items: center; }
-		.info-item_sign { color: #F86173; }
-		.info-item { animation: visible 2s ease forwards; opacity: 0;}
-		.f1 {animation-delay: .5s;}
-		.f2 {animation-delay: .75s;}
-		.f3 {animation-delay: 1s;}
-
-		@keyframes visible {
-			from {
-				opacity: 0;
-			} 
-			to {
-				opacity: 1;
-			}
-		}
+		/* Filter Section Styles*/
+		.content_filter { margin: .9% 0px 3.5em; align-items: center; border-radius: 5px; background: rgba(225,225,225,.3); padding: 5px 10px; box-sizing: border-box; }
+		.filter-item { font-size: 1.5em; margin-right: 1em;}
+		.filter-title {font-size: 1.8em; color: #F86173; margin-right: 1em}
+		.schema {  margin-left: auto; box-sizing: border-box;}
+		.s-1 { grid-template-columns: 9px 9px; grid-template-rows: 9px 9px; grid-gap: 3px; }
     </style>
 	<script defer type="text/javascript" src="../js/main.js"></script>
 
@@ -93,7 +83,7 @@
 			<li class="filter-item f-1">Recently</li>
 			<li class="filter-item f-2">Top Rated</li>
 			<li class="filter-item f-3">Low Rated</li>
-			<li class="schema s-1 grid">
+			<li class="schema s-1 grid pointer">
 				<span class="schema-i"></span>
 				<span class="schema-i"></span>
 				<span class="schema-i"></span>
@@ -102,89 +92,7 @@
 		</ul>
 		<!-- Sidebar -->
 		<div class="movie-sidebar">
-			<div class="movie-sidebar-wrap flex flex-col">
-				<div class="movie_img-wrap movie-s_img-wrap">
-					<span class="movie-s_index absol">#12</span>
-					<span class="movie-s_close absol">X</span>
-					<img src="" alt="" class="movie-img movie-s-img">
-				</div>
-				<div class="movie-s_content-wrap grid">
-					<h3 class="movie-s_title">Movie title</h3>
-					<div class="movie-s_info">1997, Comedy</div>
-					<div class="movie-s_description flex flex-col">
-						<div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum dolorum modi placeat doloribus odit ab provident, eligendi rerum dignissimos deleniti laboriosam nisi repellat impedit sit deserunt, adipisci architecto porro asperiores aspernatur quo maxime recusandae, suscipit ipsa dolor laborum. Labore consequatur voluptates laboriosam itaque necessitatibus, vel animi quibusdam, minus dolorem hic!</p>	
-						</div>
-						<span class="movie-s_btn k-link desc-btn">read more</span>
-					</div>
-					<div class="movie-s_actors-list flex flex-col">
-						<div class="grid">
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Jeniffer Eniston</h4>
-									<span class="actor-role">Actris</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-							<figure class="actors-list_actor flex flex-row">
-								<div class="actor-img_wrap"><img src="" alt="" class="actor-img"></div>
-								<div class="flex flex-col">
-									<h4 class="actor-name">Actor</h4>
-									<span class="actor-role">role</span>
-								</div>
-							</figure>
-						</div>
-						<span class="movie-s_btn k-link actors-btn">see more</span>
-					</div>
-				</div>
-				<div class="movie-s_gallery-wrap flex flex-col">
-					<div class="movie-s_gallery movie_img-wrap flex flex-row">
-						
-					</div>
-					<div class="gallery-points flex flex-row">
-						<span class="gallery-points_point"></span>
-						<span class="gallery-points_point"></span>
-						<span class="gallery-points_point"></span>
-						<span class="gallery-points_point"></span>
-						<span class="gallery-points_point"></span>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 		<!-- Content Section -->
 		<div class="content-body schema-1 grid">
@@ -207,20 +115,19 @@
 		<a href="mailto:valsytsor666@gmail.com" class="email">valsytsor666@gmail.com</a>
 	</div>
 	<script type="text/javascript">
-		var head   = document.head,
-			script = document.createElement("script"),
-			link   = document.createElement("link"),
-			jsSrc  = "../js/movie.js",
-			cssSrc = "../styles/movie.css";
+		document.onreadystatechange = function () {
+		  if (document.readyState == "complete") {
+	  		var head   = document.head,
+				script = document.createElement("script"),
+				link   = document.createElement("link"),
+				jsSrc  = "../js/movie.js",
+				cssSrc = "../styles/movie.css";
 
 			script.setAttribute("src", jsSrc);
 			link.setAttribute("rel", "stylesheet");
 			link.setAttribute("href", cssSrc);
-
-		document.onreadystatechange = function () {
-		  if (document.readyState == "interactive") {
-		    head.appendChild(script); script = null; 
 		    head.appendChild(link);   link   = null;
+		    head.appendChild(script); script = null; 
 		    head = null;
 		  }
 		}
